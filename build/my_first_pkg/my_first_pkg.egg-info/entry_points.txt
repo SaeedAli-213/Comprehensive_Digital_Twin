@@ -1,0 +1,4 @@
+[console_scripts]
+carla_publisher = my_first_pkg.publisher:main
+carla_subscriber = my_first_pkg.ros_node:run_ros_node
+
