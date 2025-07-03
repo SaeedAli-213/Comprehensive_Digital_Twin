@@ -17,11 +17,13 @@ backend = BackendAPI()
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
-
-    qmlRegisterSingletonType(QUrl.fromLocalFile("/home/saeed/work1/colcon_ws/src/my_first_pkg/my_first_pkg/Style.qml"), "Style", 1, 0, "Style")
+    
+    Style_file = Path(__file__).resolve().parent / "Style.qml"
+    qmlRegisterSingletonType(QUrl.fromLocalFile(Style_file), "Style", 1, 0, "Style")
 
     engine.rootContext().setContextProperty("backend", backend)
     qml_file = Path(__file__).resolve().parent / "main.qml"
+    
     engine.load(qml_file)
 
     if not engine.rootObjects():
